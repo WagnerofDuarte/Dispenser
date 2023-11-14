@@ -32,8 +32,6 @@ class HomeTableController: NSObject{
         tableView.dataSource = self
         tableView.register(UINib(nibName: RemedyTableViewCell.identifier, bundle: nil),
                                   forCellReuseIdentifier: RemedyTableViewCell.identifier)
-        tableView.register(UINib(nibName: NewRemedyTableViewCell.identifier, bundle: nil),
-                                  forCellReuseIdentifier: NewRemedyTableViewCell.identifier)
     }
 }
 
@@ -41,33 +39,21 @@ class HomeTableController: NSObject{
 extension HomeTableController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if remedyList.count < 5 {
-            return 1
-        }
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
-            return remedyList.count
-        }
-        return 1
+        //return remedyList.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let remedyCell = tableView.dequeueReusableCell(withIdentifier: RemedyTableViewCell.identifier) as? RemedyTableViewCell else {
-            fatalError()
+                fatalError()
         }
-        
         remedyCell.configureRemedyTableViewCell()
-        
-        
-        
-        print("teste")
-        
         return remedyCell
-        
     }
 }
 

@@ -53,6 +53,22 @@
                         <constraint firstItem="V0F-XT-Ocz" firstAttribute="leading" secondItem="pun-6u-Kdk" secondAttribute="leading" id="wmb-yQ-WDk"/>
                     </constraints>
                 </view>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOK-t1-l5v">
+                    <rect key="frame" x="263" y="722" width="100" height="100"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sES-Hi-a3J">
+                            <rect key="frame" x="0.0" y="1" width="100" height="98.666666666666671"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="sES-Hi-a3J" firstAttribute="leading" secondItem="rOK-t1-l5v" secondAttribute="leading" id="0EA-N9-D9Y"/>
+                        <constraint firstItem="sES-Hi-a3J" firstAttribute="top" secondItem="rOK-t1-l5v" secondAttribute="top" id="8Wb-M6-0TL"/>
+                        <constraint firstAttribute="width" constant="100" id="Cnl-da-Xae"/>
+                        <constraint firstAttribute="trailing" secondItem="sES-Hi-a3J" secondAttribute="trailing" id="LWX-O3-4Yj"/>
+                        <constraint firstAttribute="bottom" secondItem="sES-Hi-a3J" secondAttribute="bottom" id="mU2-0a-Ktk"/>
+                        <constraint firstAttribute="height" constant="100" id="off-TO-5jp"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,13 +78,16 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ki4-H1-SE8" secondAttribute="trailing" id="8dH-Mb-XFm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pun-6u-Kdk" secondAttribute="trailing" id="Fdl-Ja-5Rm"/>
                 <constraint firstItem="Ki4-H1-SE8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Wt6-wN-5hj"/>
+                <constraint firstAttribute="trailing" secondItem="rOK-t1-l5v" secondAttribute="trailing" constant="30" id="a43-Xd-VQ2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pun-6u-Kdk" secondAttribute="bottom" id="gKO-eW-wDM"/>
+                <constraint firstAttribute="bottom" secondItem="rOK-t1-l5v" secondAttribute="bottom" constant="30" id="kwq-A3-WPt"/>
                 <constraint firstItem="pun-6u-Kdk" firstAttribute="top" secondItem="Ki4-H1-SE8" secondAttribute="bottom" id="sbY-fb-6yq"/>
             </constraints>
             <point key="canvasLocation" x="-40" y="-12"/>
         </view>
     </objects>
     <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

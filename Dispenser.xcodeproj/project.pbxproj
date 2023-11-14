@@ -21,8 +21,6 @@
 		E61AD57A2AF9BC7300C39E8D /* NewRemedyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61AD5782AF9BC7300C39E8D /* NewRemedyViewController.xib */; };
 		E699D8DF2B02BD510074F8C2 /* RemedyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8DD2B02BD510074F8C2 /* RemedyTableViewCell.swift */; };
 		E699D8E02B02BD510074F8C2 /* RemedyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */; };
-		E699D8E52B02C1BB0074F8C2 /* NewRemedyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8E32B02C1BB0074F8C2 /* NewRemedyTableViewCell.swift */; };
-		E699D8E62B02C1BB0074F8C2 /* NewRemedyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E699D8E42B02C1BB0074F8C2 /* NewRemedyTableViewCell.xib */; };
 		E699D8E82B02C3EC0074F8C2 /* HomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8E72B02C3EC0074F8C2 /* HomeTableController.swift */; };
 		E699D8EB2B02C4950074F8C2 /* Remedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EA2B02C4950074F8C2 /* Remedy.swift */; };
 		E699D8ED2B02C5C80074F8C2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EC2B02C5C80074F8C2 /* Time.swift */; };
@@ -46,8 +44,6 @@
 		E61AD5782AF9BC7300C39E8D /* NewRemedyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewRemedyViewController.xib; sourceTree = "<group>"; };
 		E699D8DD2B02BD510074F8C2 /* RemedyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyTableViewCell.swift; sourceTree = "<group>"; };
 		E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemedyTableViewCell.xib; sourceTree = "<group>"; };
-		E699D8E32B02C1BB0074F8C2 /* NewRemedyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRemedyTableViewCell.swift; sourceTree = "<group>"; };
-		E699D8E42B02C1BB0074F8C2 /* NewRemedyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewRemedyTableViewCell.xib; sourceTree = "<group>"; };
 		E699D8E72B02C3EC0074F8C2 /* HomeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableController.swift; sourceTree = "<group>"; };
 		E699D8EA2B02C4950074F8C2 /* Remedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remedy.swift; sourceTree = "<group>"; };
 		E699D8EC2B02C5C80074F8C2 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -170,7 +166,6 @@
 		E699D8DB2B02BD080074F8C2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E699D8E22B02C14F0074F8C2 /* NewRemedyTableViewCell */,
 				E699D8E12B02BD560074F8C2 /* RemedyTableViewCell */,
 			);
 			path = Components;
@@ -193,15 +188,6 @@
 				E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */,
 			);
 			path = RemedyTableViewCell;
-			sourceTree = "<group>";
-		};
-		E699D8E22B02C14F0074F8C2 /* NewRemedyTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				E699D8E32B02C1BB0074F8C2 /* NewRemedyTableViewCell.swift */,
-				E699D8E42B02C1BB0074F8C2 /* NewRemedyTableViewCell.xib */,
-			);
-			path = NewRemedyTableViewCell;
 			sourceTree = "<group>";
 		};
 		E699D8E92B02C4860074F8C2 /* Models */ = {
@@ -280,7 +266,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61AD55F2AF9A7E200C39E8D /* LaunchScreen.storyboard in Resources */,
-				E699D8E62B02C1BB0074F8C2 /* NewRemedyTableViewCell.xib in Resources */,
 				E699D8E02B02BD510074F8C2 /* RemedyTableViewCell.xib in Resources */,
 				E61AD55C2AF9A7E200C39E8D /* Assets.xcassets in Resources */,
 				E61AD56F2AF9B5DB00C39E8D /* HomeViewController.xib in Resources */,
@@ -297,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E699D8ED2B02C5C80074F8C2 /* Time.swift in Sources */,
-				E699D8E52B02C1BB0074F8C2 /* NewRemedyTableViewCell.swift in Sources */,
 				E61AD5692AF9AB1300C39E8D /* Coordinator.swift in Sources */,
 				E699D8F02B02C72B0074F8C2 /* UsefulStrings.swift in Sources */,
 				E61AD5742AF9B9F700C39E8D /* RemedyDetailsViewController.swift in Sources */,
