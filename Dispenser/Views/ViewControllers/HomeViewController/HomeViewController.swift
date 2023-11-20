@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
         self.tableController = HomeTableController(delegate: self, remedyList: [])
     }
     
+    
+    
 }
 
 //MARK: HomeTableControllerDelegate
