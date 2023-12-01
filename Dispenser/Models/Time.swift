@@ -17,4 +17,17 @@ class Time {
         self.minutes = minutes
     }
     
+    class func stringToTime(time: String) -> Time {
+        let timeSplit = time.split(separator: ":")
+        let newHour = Int(timeSplit[0]) ?? 0
+        let newMinutes = Int(timeSplit[1]) ?? 0
+        return Time(hour: newHour, minutes: newMinutes)
+    }
+    
+    func timeToString() -> String {
+        let stringHour = hour > 9 ? "\(hour)" : "0\(hour)"
+        let stringMin = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        return ("\(stringHour):\(stringMin)")
+    }
+    
 }

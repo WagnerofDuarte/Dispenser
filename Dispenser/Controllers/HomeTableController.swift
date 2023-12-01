@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: HomeTableControllerDelegate
 protocol HomeTableControllerDelegate: AnyObject {
-    
+    func remedyCellDidTapped(_: HomeTableController, index: Int)
 }
 
 //MARK: Class Definition
@@ -18,12 +18,10 @@ class HomeTableController: NSObject{
     
     //MARK: Atributes
     weak var delegate: HomeTableControllerDelegate?
-    var remedyList: [Remedy]
     
     //MARK: Initializer
-    init(delegate: HomeTableControllerDelegate?, remedyList: [Remedy]) {
+    init(delegate: HomeTableControllerDelegate?) {
         self.delegate = delegate
-        self.remedyList = remedyList
     }
     
     //MARK: TableView setUp
@@ -33,6 +31,7 @@ class HomeTableController: NSObject{
         tableView.register(UINib(nibName: RemedyTableViewCell.identifier, bundle: nil),
                                   forCellReuseIdentifier: RemedyTableViewCell.identifier)
     }
+    
 }
 
 //MARK: UITableViewDataSource
@@ -43,8 +42,7 @@ extension HomeTableController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return remedyList.count
-        return 10
+        return remedyMock.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,9 +50,10 @@ extension HomeTableController: UITableViewDataSource {
         guard let remedyCell = tableView.dequeueReusableCell(withIdentifier: RemedyTableViewCell.identifier) as? RemedyTableViewCell else {
                 fatalError()
         }
-        remedyCell.configureRemedyTableViewCell()
+        remedyCell.configureRemedyTableViewCell(delegate: self, remedy: remedyMock[indexPath.row], index: indexPath.row)
         return remedyCell
     }
+    
 }
 
 //MARK: UITableViewDelegate
@@ -70,4 +69,10 @@ extension HomeTableController: UITableViewDelegate {
         return 0
     }
 
+}
+
+extension HomeTableController: RemedyTableViewCellDelegate {
+    func remedyCellDidTapped(_: RemedyTableViewCell, index: Int) {
+        delegate?.remedyCellDidTapped(self, index: index)
+    }
 }

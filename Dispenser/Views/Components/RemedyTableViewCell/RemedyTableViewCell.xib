@@ -100,6 +100,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="mainView" destination="pwY-6P-vEn" id="g9Y-jq-52H"/>
+                <outlet property="remedyLastDoseLabelView" destination="9Lg-CV-T69" id="AD8-4c-OcS"/>
+                <outlet property="remedyNameLabelView" destination="JQp-Jq-hCQ" id="vHF-xP-srx"/>
+                <outlet property="remedyNextDoseTimerLabelView" destination="ZZR-ck-hw1" id="XVi-th-uAh"/>
+            </connections>
             <point key="canvasLocation" x="103.81679389312977" y="-95.422535211267615"/>
         </tableViewCell>
     </objects>
@@ -109,7 +115,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -25,14 +25,44 @@ class MainCoordinator: Coordinator {
         self.childCoordinators = childCoordinators
     }
     
-    func eventOcurred(with type: Int) {
-        
-    }
-    
     func start() {
-        let homeViewController = HomeViewController()
+        let homeViewController = HomeViewController.instantiate(delegate: self)
         homeViewController.configureHomeViewController(delegate: self)
         navigationController?.setViewControllers([homeViewController], animated: false)
+    }
+    
+    func eventOcurred(with type: Action, index: Int? = nil) {
+        
+        guard let homeVC = navigationController?.viewControllers.first as? HomeViewController else {
+            fatalError()
+        }
+        
+        switch type {
+        case .addNewRemedyScreen:
+            let newRemedyViewController = NewRemedyViewController.instantiate(delegate: self)
+            navigationController?.isNavigationBarHidden = true
+            navigationController?.pushViewController(newRemedyViewController, animated: true)
+        case .editExistingRemedyScreen:
+            let editRemedyViewController = EditRemedyViewController.instantiate(delegate: self)
+            navigationController?.isNavigationBarHidden = true
+            navigationController?.pushViewController(editRemedyViewController, animated: true)
+        case .seeExistingRemedyScreen:
+            guard let index = index else { return }
+            let remedyDetailsScreen = RemedyDetailsViewController.instantiate(delegate: self, index: index)
+            navigationController?.isNavigationBarHidden = true
+            navigationController?.pushViewController(remedyDetailsScreen, animated: true)
+        case .saveNewRemedyButtonDidTapped:
+            homeVC.refreshTableView(command: .add)
+            navigationController?.popViewController(animated: true)
+        case .saveChangesToExistingRemedy:
+            homeVC.refreshTableView(command: .edit)
+            navigationController?.popViewController(animated: true)
+        case .deleteRemedyButtonDidTapped:
+            homeVC.refreshTableView(command: .delete)
+            navigationController?.popViewController(animated: true)
+        case .cancelButtonDidTapped:
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     func end() {
@@ -42,4 +72,49 @@ class MainCoordinator: Coordinator {
 
 extension MainCoordinator: HomeViewControllerDelegate {
     
+    func remedyCellDidTapped(_: HomeViewController, index: Int) {
+        self.eventOcurred(with: .seeExistingRemedyScreen, index: index)
+    }
+    
+    func addNewRemedyButtonDidTap(_: HomeViewController) {
+        self.eventOcurred(with: .addNewRemedyScreen)
+    }
+}
+
+extension MainCoordinator: NewRemedyDetailsViewControllerDelegate {
+    func saveButtonDidTapped(_: NewRemedyViewController, _ newRemedy: Remedy) {
+        RemedyManager.saveRemedy(newRemedy: newRemedy)
+        self.eventOcurred(with: .saveNewRemedyButtonDidTapped)
+    }
+    
+    func cancelButtonDidTapped(_: NewRemedyViewController) {
+        self.eventOcurred(with: .cancelButtonDidTapped)
+    }
+}
+
+extension MainCoordinator: RemedyDetailsViewControllerDelegate {
+    
+    func backButtonDidTap(_: RemedyDetailsViewController) {
+        self.eventOcurred(with: .cancelButtonDidTapped)
+    }
+    
+    func editRemedyButtonDidTap(_: RemedyDetailsViewController) {
+        self.eventOcurred(with: .editExistingRemedyScreen)
+    }
+}
+
+extension MainCoordinator: EditRemedyViewControllerDelegate {
+    
+    func deleteButtonDidTap(_: EditRemedyViewController, index: Int) {
+        RemedyManager.deleteRemedy(index: index)
+        self.eventOcurred(with: .deleteRemedyButtonDidTapped)
+    }
+    
+    func saveChangesButtonDidTap(_: EditRemedyViewController) {
+        self.eventOcurred(with: .saveChangesToExistingRemedy)
+    }
+    
+    func cancelButtonDidTap(_: EditRemedyViewController) {
+        self.eventOcurred(with: .cancelButtonDidTapped)
+    }
 }

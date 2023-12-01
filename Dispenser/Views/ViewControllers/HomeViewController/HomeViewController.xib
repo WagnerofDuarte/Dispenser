@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Dispenser" customModuleProvider="target">
             <connections>
+                <outlet property="addRemedyButton" destination="rOK-t1-l5v" id="C10-e3-1aF"/>
                 <outlet property="remedyListTableView" destination="V0F-XT-Ocz" id="VTL-fj-dig"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
