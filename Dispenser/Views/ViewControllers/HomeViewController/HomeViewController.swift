@@ -52,14 +52,17 @@ class HomeViewController: UIViewController {
         addRemedyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addRemedyButtonPressed(_:))))
     }
     
-    func refreshTableView(command: RefreshType){
+    func refreshTableView(command: RefreshType, index: Int? = nil){
         switch command {
         case .add:
-            remedyListTableView.insertRows(at: [IndexPath(row: (remedyMock.count - 1), section: 0)], with: .none)
+            remedyListTableView.insertRows(at: [IndexPath(row: (remedyMock.count - 1),
+                                                          section: 0)], with: .none)
         case .delete:
-            print("a")
+            guard let index = index else { return }
+            remedyListTableView.deleteRows(at: [IndexPath(row: index,
+                                                          section: 0)], with: .none)
         case .edit:
-            print("b")
+            remedyListTableView.reloadData()
         }
     }
     

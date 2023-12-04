@@ -10,6 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditRemedyViewController" customModule="Dispenser" customModuleProvider="target">
             <connections>
+                <outlet property="remedyAmoutPerDoseTextField" destination="Vk3-YR-fzd" id="SBH-pG-c0p"/>
+                <outlet property="remedyAvailableDosesTextField" destination="bXh-h7-gAd" id="2T9-ai-eBN"/>
+                <outlet property="remedyFrequencyTextField" destination="kF6-Y4-Z9p" id="Hqo-IW-UHw"/>
+                <outlet property="remedyLastDoseTextField" destination="w7G-uE-b5f" id="A3L-Ih-w9K"/>
+                <outlet property="remedyNameTextField" destination="Wqs-Xh-a7q" id="fdS-Fd-VLt"/>
+                <outlet property="remedyNotesTextField" destination="YXd-0Z-pRE" id="UTc-Ld-kFL"/>
                 <outlet property="view" destination="HQn-D0-FLh" id="qp9-cl-r1N"/>
             </connections>
         </placeholder>

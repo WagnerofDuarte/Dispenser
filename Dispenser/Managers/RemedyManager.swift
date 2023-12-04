@@ -21,4 +21,10 @@ class RemedyManager {
         _ = remedyMock.remove(at: index)
     }
     
+    class func editRemedy(data: (Remedy?, Int?)){
+        guard let remedy = data.0 else { return }
+        guard let index = data.1 else { return }
+        remedyMock[index] = remedy
+    }
+    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol RemedyDetailsViewControllerDelegate: AnyObject {
     func backButtonDidTap(_: RemedyDetailsViewController)
-    func editRemedyButtonDidTap(_: RemedyDetailsViewController)
+    func editRemedyButtonDidTap(_: RemedyDetailsViewController, index: Int)
 }
 
 class RemedyDetailsViewController: UIViewController {
@@ -17,6 +17,7 @@ class RemedyDetailsViewController: UIViewController {
     //MARK: Proprieties
     var delegate: RemedyDetailsViewControllerDelegate?
     var remedy: Remedy?
+    var index: Int?
     
     //MARK: IBOutlets
     
@@ -31,6 +32,7 @@ class RemedyDetailsViewController: UIViewController {
         let remedyDetailsViewController = RemedyDetailsViewController(nibName: String(describing: self), bundle: nil)
         remedyDetailsViewController.delegate = delegate
         remedyDetailsViewController.remedy = remedyMock[index]
+        remedyDetailsViewController.index = index
         return remedyDetailsViewController
     }
 
@@ -56,7 +58,7 @@ class RemedyDetailsViewController: UIViewController {
     }
     
     @IBAction func editRemedyButtonPress(_ sender: Any) {
-        delegate?.editRemedyButtonDidTap(self)
+        delegate?.editRemedyButtonDidTap(self, index: self.index ?? 0)
     }
     
 
