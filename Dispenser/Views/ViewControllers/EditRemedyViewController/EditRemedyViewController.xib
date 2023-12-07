@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,7 +14,7 @@
                 <outlet property="remedyAmoutPerDoseTextField" destination="Vk3-YR-fzd" id="SBH-pG-c0p"/>
                 <outlet property="remedyAvailableDosesTextField" destination="bXh-h7-gAd" id="2T9-ai-eBN"/>
                 <outlet property="remedyFrequencyTextField" destination="kF6-Y4-Z9p" id="Hqo-IW-UHw"/>
-                <outlet property="remedyLastDoseTextField" destination="w7G-uE-b5f" id="A3L-Ih-w9K"/>
+                <outlet property="remedyLastDoseDatePicker" destination="gSE-eh-ssn" id="Q7z-gO-hCk"/>
                 <outlet property="remedyNameTextField" destination="Wqs-Xh-a7q" id="fdS-Fd-VLt"/>
                 <outlet property="remedyNotesTextField" destination="YXd-0Z-pRE" id="UTc-Ld-kFL"/>
                 <outlet property="view" destination="HQn-D0-FLh" id="qp9-cl-r1N"/>
@@ -67,8 +68,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-ed-Vg4">
                                                     <rect key="frame" x="0.0" y="100" width="393" height="100"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequencia de doses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-Ke-Pbj">
-                                                            <rect key="frame" x="14.999999999999986" y="9.9999999999999982" width="246.66666666666663" height="29.333333333333329"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intervalo de doses (em horas)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-Ke-Pbj">
+                                                            <rect key="frame" x="15" y="9.9999999999999982" width="367.33333333333331" height="29.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -125,20 +126,18 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w7G-uE-b5f">
-                                                            <rect key="frame" x="15" y="44.333333333333314" width="363" height="34"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gSE-eh-ssn">
+                                                            <rect key="frame" x="15" y="44.333333333333314" width="363" height="36"/>
+                                                        </datePicker>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="w7G-uE-b5f" firstAttribute="top" secondItem="UfW-yw-M0N" secondAttribute="bottom" constant="5" id="DvQ-Zp-CXh"/>
                                                         <constraint firstItem="UfW-yw-M0N" firstAttribute="top" secondItem="Ua0-SU-kQs" secondAttribute="top" constant="10" id="HKx-PT-G1g"/>
                                                         <constraint firstItem="UfW-yw-M0N" firstAttribute="leading" secondItem="Ua0-SU-kQs" secondAttribute="leading" constant="15" id="YJ7-4x-J7g"/>
-                                                        <constraint firstItem="w7G-uE-b5f" firstAttribute="leading" secondItem="Ua0-SU-kQs" secondAttribute="leading" constant="15" id="cUY-tA-mVF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gSE-eh-ssn" secondAttribute="trailing" constant="15" id="ayj-bA-PSs"/>
                                                         <constraint firstAttribute="height" constant="100" id="d7i-qM-V22"/>
-                                                        <constraint firstAttribute="trailing" secondItem="w7G-uE-b5f" secondAttribute="trailing" constant="15" id="v7N-BT-aZv"/>
+                                                        <constraint firstItem="gSE-eh-ssn" firstAttribute="top" secondItem="UfW-yw-M0N" secondAttribute="bottom" constant="5" id="i8R-QW-GCU"/>
+                                                        <constraint firstItem="gSE-eh-ssn" firstAttribute="leading" secondItem="Ua0-SU-kQs" secondAttribute="leading" constant="15" id="qzy-Dm-KLv"/>
                                                         <constraint firstAttribute="width" constant="393" id="ydq-Io-ZJ0"/>
                                                     </constraints>
                                                 </view>

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RemedyTableViewCellDelegate: AnyObject {
-    func remedyCellDidTapped(_: RemedyTableViewCell, index: Int)
+    func remedyCellDidTapped(_: RemedyTableViewCell, remedy: Remedy)
 }
 
 class RemedyTableViewCell: UITableViewCell {
@@ -16,7 +16,6 @@ class RemedyTableViewCell: UITableViewCell {
     //MARK: Proprieties
     weak var delegate: RemedyTableViewCellDelegate?
     var remedy: Remedy?
-    var index: Int?
     
     //MARK: IBOutlets
     @IBOutlet weak var mainView: UIView!
@@ -36,17 +35,17 @@ class RemedyTableViewCell: UITableViewCell {
     }
     
     func configureRemedyTableViewCell(delegate: RemedyTableViewCellDelegate?, remedy: Remedy, index: Int){
-        self.index = index
+        self.remedy = remedyList[index]
         self.delegate = delegate
         self.remedyNameLabelView.text = remedy.name
-        self.remedyLastDoseLabelView.text = remedy.lastDoseToString()
-        self.remedyNextDoseTimerLabelView.text = remedy.timerToNextDoseToString()
+        self.remedyLastDoseLabelView.text = remedy.lastDoseToStringAndIntro()
+        self.remedyNextDoseTimerLabelView.text = remedy.nextDoseToString()
         mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cellDidTapped(_:))))
     }
     
     @objc func cellDidTapped(_ sender: UITapGestureRecognizer){
-        guard let index = self.index else { return }
-        delegate?.remedyCellDidTapped(self, index: index)
+        guard let remedy = self.remedy else { return }
+        delegate?.remedyCellDidTapped(self, remedy: remedy)
     }
     
 }

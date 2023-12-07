@@ -21,13 +21,12 @@
 		E61AD57A2AF9BC7300C39E8D /* NewRemedyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61AD5782AF9BC7300C39E8D /* NewRemedyViewController.xib */; };
 		E6513C402B180B25000B99D9 /* EditRemedyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C3E2B180B25000B99D9 /* EditRemedyViewController.swift */; };
 		E6513C412B180B25000B99D9 /* EditRemedyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6513C3F2B180B25000B99D9 /* EditRemedyViewController.xib */; };
-		E6513C442B18114B000B99D9 /* RemedyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C432B18114B000B99D9 /* RemedyMock.swift */; };
-		E6513C472B181C4D000B99D9 /* RemedyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C462B181C4D000B99D9 /* RemedyManager.swift */; };
+		E6513C442B18114B000B99D9 /* RemedyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C432B18114B000B99D9 /* RemedyList.swift */; };
+		E6513C472B181C4D000B99D9 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C462B181C4D000B99D9 /* Manager.swift */; };
 		E699D8DF2B02BD510074F8C2 /* RemedyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8DD2B02BD510074F8C2 /* RemedyTableViewCell.swift */; };
 		E699D8E02B02BD510074F8C2 /* RemedyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */; };
 		E699D8E82B02C3EC0074F8C2 /* HomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8E72B02C3EC0074F8C2 /* HomeTableController.swift */; };
 		E699D8EB2B02C4950074F8C2 /* Remedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EA2B02C4950074F8C2 /* Remedy.swift */; };
-		E699D8ED2B02C5C80074F8C2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EC2B02C5C80074F8C2 /* Time.swift */; };
 		E699D8F02B02C72B0074F8C2 /* UsefulStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EF2B02C72B0074F8C2 /* UsefulStrings.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,13 +47,12 @@
 		E61AD5782AF9BC7300C39E8D /* NewRemedyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewRemedyViewController.xib; sourceTree = "<group>"; };
 		E6513C3E2B180B25000B99D9 /* EditRemedyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRemedyViewController.swift; sourceTree = "<group>"; };
 		E6513C3F2B180B25000B99D9 /* EditRemedyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditRemedyViewController.xib; sourceTree = "<group>"; };
-		E6513C432B18114B000B99D9 /* RemedyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyMock.swift; sourceTree = "<group>"; };
-		E6513C462B181C4D000B99D9 /* RemedyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyManager.swift; sourceTree = "<group>"; };
+		E6513C432B18114B000B99D9 /* RemedyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyList.swift; sourceTree = "<group>"; };
+		E6513C462B181C4D000B99D9 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		E699D8DD2B02BD510074F8C2 /* RemedyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyTableViewCell.swift; sourceTree = "<group>"; };
 		E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemedyTableViewCell.xib; sourceTree = "<group>"; };
 		E699D8E72B02C3EC0074F8C2 /* HomeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableController.swift; sourceTree = "<group>"; };
 		E699D8EA2B02C4950074F8C2 /* Remedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remedy.swift; sourceTree = "<group>"; };
-		E699D8EC2B02C5C80074F8C2 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E699D8EF2B02C72B0074F8C2 /* UsefulStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				E6513C452B181C2F000B99D9 /* Managers */,
-				E6513C422B18113C000B99D9 /* Mocks */,
+				E6513C422B18113C000B99D9 /* Data */,
 				E699D8EE2B02C71A0074F8C2 /* Helpers */,
 				E699D8E92B02C4860074F8C2 /* Models */,
 				E61AD57D2B02BA2900C39E8D /* Controllers */,
@@ -182,18 +180,18 @@
 			path = EditRemedyViewController;
 			sourceTree = "<group>";
 		};
-		E6513C422B18113C000B99D9 /* Mocks */ = {
+		E6513C422B18113C000B99D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E6513C432B18114B000B99D9 /* RemedyMock.swift */,
+				E6513C432B18114B000B99D9 /* RemedyList.swift */,
 			);
-			path = Mocks;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		E6513C452B181C2F000B99D9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				E6513C462B181C4D000B99D9 /* RemedyManager.swift */,
+				E6513C462B181C4D000B99D9 /* Manager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -230,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				E699D8EA2B02C4950074F8C2 /* Remedy.swift */,
-				E699D8EC2B02C5C80074F8C2 /* Time.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,7 +315,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E699D8ED2B02C5C80074F8C2 /* Time.swift in Sources */,
 				E61AD5692AF9AB1300C39E8D /* Coordinator.swift in Sources */,
 				E699D8F02B02C72B0074F8C2 /* UsefulStrings.swift in Sources */,
 				E61AD5742AF9B9F700C39E8D /* RemedyDetailsViewController.swift in Sources */,
@@ -327,9 +323,9 @@
 				E61AD56B2AF9AE4B00C39E8D /* MainCoordinator.swift in Sources */,
 				E699D8DF2B02BD510074F8C2 /* RemedyTableViewCell.swift in Sources */,
 				E61AD5552AF9A7E100C39E8D /* SceneDelegate.swift in Sources */,
-				E6513C442B18114B000B99D9 /* RemedyMock.swift in Sources */,
+				E6513C442B18114B000B99D9 /* RemedyList.swift in Sources */,
 				E61AD56E2AF9B5DB00C39E8D /* HomeViewController.swift in Sources */,
-				E6513C472B181C4D000B99D9 /* RemedyManager.swift in Sources */,
+				E6513C472B181C4D000B99D9 /* Manager.swift in Sources */,
 				E699D8EB2B02C4950074F8C2 /* Remedy.swift in Sources */,
 				E699D8E82B02C3EC0074F8C2 /* HomeTableController.swift in Sources */,
 				E6513C402B180B25000B99D9 /* EditRemedyViewController.swift in Sources */,
@@ -402,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -459,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -9,7 +9,7 @@ import UIKit
 
 protocol RemedyDetailsViewControllerDelegate: AnyObject {
     func backButtonDidTap(_: RemedyDetailsViewController)
-    func editRemedyButtonDidTap(_: RemedyDetailsViewController, index: Int)
+    func editRemedyButtonDidTap(_: RemedyDetailsViewController, remedy: Remedy)
 }
 
 class RemedyDetailsViewController: UIViewController {
@@ -17,7 +17,6 @@ class RemedyDetailsViewController: UIViewController {
     //MARK: Proprieties
     var delegate: RemedyDetailsViewControllerDelegate?
     var remedy: Remedy?
-    var index: Int?
     
     //MARK: IBOutlets
     
@@ -27,12 +26,12 @@ class RemedyDetailsViewController: UIViewController {
     @IBOutlet weak var remedyLastDoseLabel: UILabel!
     @IBOutlet weak var remedyAvailableDosesLabel: UILabel!
     @IBOutlet weak var remedyNotesLabel: UILabel!
+    @IBOutlet weak var remedyTubeLabel: UILabel!
     
-    class func instantiate(delegate: RemedyDetailsViewControllerDelegate, index: Int) -> RemedyDetailsViewController {
+    class func instantiate(delegate: RemedyDetailsViewControllerDelegate, remedy: Remedy) -> RemedyDetailsViewController {
         let remedyDetailsViewController = RemedyDetailsViewController(nibName: String(describing: self), bundle: nil)
         remedyDetailsViewController.delegate = delegate
-        remedyDetailsViewController.remedy = remedyMock[index]
-        remedyDetailsViewController.index = index
+        remedyDetailsViewController.remedy = remedy
         return remedyDetailsViewController
     }
 
@@ -46,11 +45,12 @@ class RemedyDetailsViewController: UIViewController {
     func layoutConfig(){
         guard let remedy = self.remedy else { return }
         remedyNameLabel.text = remedy.name
-        remedyfrequencyLabel.text = String(remedy.dosesFrequecy)
+        remedyfrequencyLabel.text = String(remedy.dosesHoursInterval)
         remedyAmoutPerDoseLabel.text = String(remedy.amountPerDose)
-        remedyLastDoseLabel.text = remedy.lastDose.timeToString()
+        remedyLastDoseLabel.text = remedy.dateToString(date: remedy.lastDose)
         remedyAvailableDosesLabel.text = String(remedy.remainingDoses)
         remedyNotesLabel.text = remedy.remedyNotes
+        remedyTubeLabel.text = String(remedy.tube)
     }
     
     @IBAction func backButtonPress(_ sender: Any) {
@@ -58,7 +58,8 @@ class RemedyDetailsViewController: UIViewController {
     }
     
     @IBAction func editRemedyButtonPress(_ sender: Any) {
-        delegate?.editRemedyButtonDidTap(self, index: self.index ?? 0)
+        guard let remedy = self.remedy else { return }
+        delegate?.editRemedyButtonDidTap(self, remedy: remedy)
     }
     
 

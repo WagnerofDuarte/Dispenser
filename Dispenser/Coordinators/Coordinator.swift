@@ -14,7 +14,7 @@ protocol Coordinator {
     var parentCoordinator: Coordinator? { get set }
     var childCoordinators: [Coordinator]? { get set }
     
-    func eventOcurred(with type: Action, index: Int?)
+    func eventOcurred(with type: Action, remedy: Remedy?, index: Int?)
     func start()
     func end()
     

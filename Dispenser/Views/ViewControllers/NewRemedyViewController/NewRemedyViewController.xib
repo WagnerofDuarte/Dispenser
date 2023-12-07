@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +13,7 @@
             <connections>
                 <outlet property="amountPerDoseTextField" destination="Zwe-GJ-t3z" id="4Zd-F2-v3p"/>
                 <outlet property="dosesFrequencyTextField" destination="iSf-rQ-kdU" id="2W7-Ov-txP"/>
-                <outlet property="lastDoseTextField" destination="gaw-Ca-roH" id="SWr-Ro-NQu"/>
+                <outlet property="lastDoseDatePicker" destination="sNY-Z0-GwH" id="brx-tK-OCS"/>
                 <outlet property="remainingDosesTextField" destination="uqP-Mb-FIe" id="2dF-zi-hzd"/>
                 <outlet property="remedyNameTextField" destination="9A1-8n-a9h" id="kAr-f0-SGc"/>
                 <outlet property="remedyNotesTextField" destination="Xae-7B-KWB" id="o9H-rk-Lrl"/>
@@ -66,8 +67,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxB-uu-CWV">
                                                     <rect key="frame" x="0.0" y="100" width="393" height="100"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequencia de doses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-Ox-JbW">
-                                                            <rect key="frame" x="14.999999999999986" y="9.9999999999999982" width="246.66666666666663" height="29.333333333333329"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intervalo de doses (em horas)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-Ox-JbW">
+                                                            <rect key="frame" x="15" y="9.9999999999999982" width="367.33333333333331" height="29.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -124,19 +125,17 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gaw-Ca-roH">
-                                                            <rect key="frame" x="15" y="44.333333333333314" width="363" height="34"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="sNY-Z0-GwH">
+                                                            <rect key="frame" x="15" y="44.333333333333314" width="363" height="36"/>
+                                                        </datePicker>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="HN8-60-ZWf" firstAttribute="leading" secondItem="k4e-lf-06U" secondAttribute="leading" constant="15" id="6jw-t9-T16"/>
-                                                        <constraint firstAttribute="trailing" secondItem="gaw-Ca-roH" secondAttribute="trailing" constant="15" id="Q3g-w3-vrc"/>
-                                                        <constraint firstItem="gaw-Ca-roH" firstAttribute="top" secondItem="HN8-60-ZWf" secondAttribute="bottom" constant="5" id="a20-fm-jam"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sNY-Z0-GwH" secondAttribute="trailing" constant="15" id="IZ2-JQ-Me4"/>
+                                                        <constraint firstItem="sNY-Z0-GwH" firstAttribute="leading" secondItem="k4e-lf-06U" secondAttribute="leading" constant="15" id="YFw-PA-0tF"/>
+                                                        <constraint firstItem="sNY-Z0-GwH" firstAttribute="top" secondItem="HN8-60-ZWf" secondAttribute="bottom" constant="5" id="exT-Ct-YK1"/>
                                                         <constraint firstAttribute="width" constant="393" id="gWd-lt-Au8"/>
-                                                        <constraint firstItem="gaw-Ca-roH" firstAttribute="leading" secondItem="k4e-lf-06U" secondAttribute="leading" constant="15" id="h5z-UR-Lh8"/>
                                                         <constraint firstItem="HN8-60-ZWf" firstAttribute="top" secondItem="k4e-lf-06U" secondAttribute="top" constant="10" id="t4R-gl-4KX"/>
                                                         <constraint firstAttribute="height" constant="100" id="xn7-Qh-Xa9"/>
                                                     </constraints>

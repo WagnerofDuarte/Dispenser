@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,6 +16,7 @@
                 <outlet property="remedyLastDoseLabel" destination="F6r-NE-oCp" id="1zK-xh-4cB"/>
                 <outlet property="remedyNameLabel" destination="N5x-rv-Rys" id="mI2-Xu-pxq"/>
                 <outlet property="remedyNotesLabel" destination="Ij8-3m-gEx" id="9kb-7I-igZ"/>
+                <outlet property="remedyTubeLabel" destination="oSr-gZ-BUs" id="ap1-vS-0Ie"/>
                 <outlet property="remedyfrequencyLabel" destination="ATZ-oM-2My" id="i4o-B4-kpw"/>
                 <outlet property="view" destination="oEr-VL-Dps" id="tF0-9f-NGq"/>
             </connections>
@@ -35,7 +37,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="698"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-jw-HMH">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJ1-Li-7z7">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
@@ -66,8 +68,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S15-D9-I1L">
                                                     <rect key="frame" x="0.0" y="100" width="393" height="100"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequencia de doses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-TK-Ng3">
-                                                            <rect key="frame" x="14.999999999999986" y="9.9999999999999982" width="246.66666666666663" height="29.333333333333329"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intervalo de doses (em horas)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-TK-Ng3">
+                                                            <rect key="frame" x="15" y="9.9999999999999982" width="367.33333333333331" height="29.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -191,6 +193,32 @@
                                                         <constraint firstItem="3v3-bE-b1w" firstAttribute="top" secondItem="Ctb-Kc-K1k" secondAttribute="top" constant="10" id="bbK-RN-jWh"/>
                                                         <constraint firstItem="Ij8-3m-gEx" firstAttribute="leading" secondItem="Ctb-Kc-K1k" secondAttribute="leading" constant="15" id="m6O-6K-yHu"/>
                                                         <constraint firstItem="3v3-bE-b1w" firstAttribute="leading" secondItem="Ctb-Kc-K1k" secondAttribute="leading" constant="15" id="oSF-3y-cdA"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhQ-uE-fEe">
+                                                    <rect key="frame" x="0.0" y="600" width="393" height="100"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tubo do remédio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-NI-pjC">
+                                                            <rect key="frame" x="15" y="9.9999999999999982" width="215.33333333333334" height="29.333333333333329"/>
+                                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSr-gZ-BUs">
+                                                            <rect key="frame" x="15" y="49.333333333333371" width="0.0" height="0.0"/>
+                                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="5Zk-Nr-IGF"/>
+                                                        <constraint firstItem="oSr-gZ-BUs" firstAttribute="top" secondItem="O6r-NI-pjC" secondAttribute="bottom" constant="10" id="BPv-em-SxV"/>
+                                                        <constraint firstItem="O6r-NI-pjC" firstAttribute="top" secondItem="rhQ-uE-fEe" secondAttribute="top" constant="10" id="Lnu-np-N6L"/>
+                                                        <constraint firstAttribute="width" constant="393" id="U54-dL-qkX"/>
+                                                        <constraint firstItem="oSr-gZ-BUs" firstAttribute="leading" secondItem="rhQ-uE-fEe" secondAttribute="leading" constant="15" id="WV9-3N-y0z"/>
+                                                        <constraint firstItem="O6r-NI-pjC" firstAttribute="leading" secondItem="rhQ-uE-fEe" secondAttribute="leading" constant="15" id="lab-Gs-R0k"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

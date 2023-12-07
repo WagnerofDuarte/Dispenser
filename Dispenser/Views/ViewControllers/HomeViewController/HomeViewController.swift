@@ -9,7 +9,7 @@ import UIKit
 //MARK: HomeViewControllerDelegate
 protocol HomeViewControllerDelegate: AnyObject {
     func addNewRemedyButtonDidTap(_: HomeViewController)
-    func remedyCellDidTapped(_: HomeViewController, index: Int)
+    func remedyCellDidTapped(_: HomeViewController, remedy: Remedy)
 }
 
 enum RefreshType{
@@ -52,12 +52,13 @@ class HomeViewController: UIViewController {
         addRemedyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addRemedyButtonPressed(_:))))
     }
     
-    func refreshTableView(command: RefreshType, index: Int? = nil){
+    func refreshTableView(command: RefreshType, remedy: Remedy? = nil, index: Int? = nil){
         switch command {
         case .add:
-            remedyListTableView.insertRows(at: [IndexPath(row: (remedyMock.count - 1),
+            remedyListTableView.insertRows(at: [IndexPath(row: (remedyList.count - 1),
                                                           section: 0)], with: .none)
         case .delete:
+            //guard let remedy = remedy else { return }
             guard let index = index else { return }
             remedyListTableView.deleteRows(at: [IndexPath(row: index,
                                                           section: 0)], with: .none)
@@ -75,7 +76,7 @@ class HomeViewController: UIViewController {
 
 //MARK: HomeTableControllerDelegate
 extension HomeViewController: HomeTableControllerDelegate {
-    func remedyCellDidTapped(_: HomeTableController, index: Int) {
-        delegate?.remedyCellDidTapped(self, index: index)
+    func remedyCellDidTapped(_: HomeTableController, remedy: Remedy) {
+        delegate?.remedyCellDidTapped(self, remedy: remedy)
     }
 }

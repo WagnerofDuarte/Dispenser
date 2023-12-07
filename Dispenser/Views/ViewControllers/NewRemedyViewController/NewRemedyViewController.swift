@@ -18,7 +18,7 @@ class NewRemedyViewController: UIViewController {
     @IBOutlet weak var remedyNameTextField: UITextField!
     @IBOutlet weak var dosesFrequencyTextField: UITextField!
     @IBOutlet weak var amountPerDoseTextField: UITextField!
-    @IBOutlet weak var lastDoseTextField: UITextField!
+    @IBOutlet weak var lastDoseDatePicker: UIDatePicker!
     @IBOutlet weak var remainingDosesTextField: UILabel!
     @IBOutlet weak var remedyNotesTextField: UITextField!
     
@@ -38,16 +38,17 @@ class NewRemedyViewController: UIViewController {
         let remedyName = remedyNameTextField.text ?? ""
         let dosesFrequecy = dosesFrequencyTextField.text ?? ""
         let amountPerDose = amountPerDoseTextField.text ?? ""
-        let lastDose = lastDoseTextField.text ?? ""
+        let lastDose = lastDoseDatePicker.date
         let remainingDoses = remainingDosesTextField.text ?? ""
         let remedyNotes = remedyNotesTextField.text ?? ""
         
-        var newRemedy = Remedy(name: remedyName,
+        let newRemedy = Remedy(name: remedyName,
                                dosesFrequecy: Int(dosesFrequecy) ?? 1,
                                amountPerDose: Int(amountPerDose) ?? 1,
-                               lastDose: Time.stringToTime(time: lastDose),
+                               lastDose: lastDose,
                                remainingDoses: Int(remainingDoses) ?? 1,
                                remedyNotes: remedyNotes)
+        newRemedy.calculateNextDose()
         
         delegate?.saveButtonDidTapped(self, newRemedy)
     }

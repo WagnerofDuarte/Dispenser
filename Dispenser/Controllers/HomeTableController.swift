@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: HomeTableControllerDelegate
 protocol HomeTableControllerDelegate: AnyObject {
-    func remedyCellDidTapped(_: HomeTableController, index: Int)
+    func remedyCellDidTapped(_: HomeTableController, remedy: Remedy)
 }
 
 //MARK: Class Definition
@@ -42,7 +42,7 @@ extension HomeTableController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return remedyMock.count
+        return remedyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +50,7 @@ extension HomeTableController: UITableViewDataSource {
         guard let remedyCell = tableView.dequeueReusableCell(withIdentifier: RemedyTableViewCell.identifier) as? RemedyTableViewCell else {
                 fatalError()
         }
-        remedyCell.configureRemedyTableViewCell(delegate: self, remedy: remedyMock[indexPath.row], index: indexPath.row)
+        remedyCell.configureRemedyTableViewCell(delegate: self, remedy: remedyList[indexPath.row], index: indexPath.row)
         return remedyCell
     }
     
@@ -72,7 +72,7 @@ extension HomeTableController: UITableViewDelegate {
 }
 
 extension HomeTableController: RemedyTableViewCellDelegate {
-    func remedyCellDidTapped(_: RemedyTableViewCell, index: Int) {
-        delegate?.remedyCellDidTapped(self, index: index)
+    func remedyCellDidTapped(_: RemedyTableViewCell, remedy: Remedy) {
+        delegate?.remedyCellDidTapped(self, remedy: remedy)
     }
 }
