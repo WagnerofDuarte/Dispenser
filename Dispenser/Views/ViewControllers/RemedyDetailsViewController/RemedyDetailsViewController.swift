@@ -45,12 +45,12 @@ class RemedyDetailsViewController: UIViewController {
     func layoutConfig(){
         guard let remedy = self.remedy else { return }
         remedyNameLabel.text = remedy.name
-        remedyfrequencyLabel.text = String(remedy.dosesHoursInterval)
+        remedyfrequencyLabel.text = String(remedy.frequency)
         remedyAmoutPerDoseLabel.text = String(remedy.amountPerDose)
-        remedyLastDoseLabel.text = remedy.dateToString(date: remedy.lastDose)
+        remedyLastDoseLabel.text = remedy.dateToString(date: remedy.lastDoseDate)
         remedyAvailableDosesLabel.text = String(remedy.remainingDoses)
-        remedyNotesLabel.text = remedy.remedyNotes
-        remedyTubeLabel.text = String(remedy.tube)
+        remedyNotesLabel.text = remedy.notes
+        remedyTubeLabel.text = String(remedy.tubeIdentifier)
     }
     
     @IBAction func backButtonPress(_ sender: Any) {

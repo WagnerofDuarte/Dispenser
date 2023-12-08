@@ -22,12 +22,14 @@
 		E6513C402B180B25000B99D9 /* EditRemedyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C3E2B180B25000B99D9 /* EditRemedyViewController.swift */; };
 		E6513C412B180B25000B99D9 /* EditRemedyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6513C3F2B180B25000B99D9 /* EditRemedyViewController.xib */; };
 		E6513C442B18114B000B99D9 /* RemedyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C432B18114B000B99D9 /* RemedyList.swift */; };
-		E6513C472B181C4D000B99D9 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C462B181C4D000B99D9 /* Manager.swift */; };
+		E6513C472B181C4D000B99D9 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6513C462B181C4D000B99D9 /* MainManager.swift */; };
 		E699D8DF2B02BD510074F8C2 /* RemedyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8DD2B02BD510074F8C2 /* RemedyTableViewCell.swift */; };
 		E699D8E02B02BD510074F8C2 /* RemedyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */; };
 		E699D8E82B02C3EC0074F8C2 /* HomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8E72B02C3EC0074F8C2 /* HomeTableController.swift */; };
 		E699D8EB2B02C4950074F8C2 /* Remedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EA2B02C4950074F8C2 /* Remedy.swift */; };
 		E699D8F02B02C72B0074F8C2 /* UsefulStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699D8EF2B02C72B0074F8C2 /* UsefulStrings.swift */; };
+		E6FD48822B2277BF00EE33DE /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FD48812B2277BF00EE33DE /* NotificationManager.swift */; };
+		E6FD48842B2291A100EE33DE /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FD48832B2291A100EE33DE /* ClientManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,12 +50,14 @@
 		E6513C3E2B180B25000B99D9 /* EditRemedyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRemedyViewController.swift; sourceTree = "<group>"; };
 		E6513C3F2B180B25000B99D9 /* EditRemedyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditRemedyViewController.xib; sourceTree = "<group>"; };
 		E6513C432B18114B000B99D9 /* RemedyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyList.swift; sourceTree = "<group>"; };
-		E6513C462B181C4D000B99D9 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		E6513C462B181C4D000B99D9 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
 		E699D8DD2B02BD510074F8C2 /* RemedyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyTableViewCell.swift; sourceTree = "<group>"; };
 		E699D8DE2B02BD510074F8C2 /* RemedyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemedyTableViewCell.xib; sourceTree = "<group>"; };
 		E699D8E72B02C3EC0074F8C2 /* HomeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableController.swift; sourceTree = "<group>"; };
 		E699D8EA2B02C4950074F8C2 /* Remedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remedy.swift; sourceTree = "<group>"; };
 		E699D8EF2B02C72B0074F8C2 /* UsefulStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulStrings.swift; sourceTree = "<group>"; };
+		E6FD48812B2277BF00EE33DE /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E6FD48832B2291A100EE33DE /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +195,9 @@
 		E6513C452B181C2F000B99D9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				E6513C462B181C4D000B99D9 /* Manager.swift */,
+				E6513C462B181C4D000B99D9 /* MainManager.swift */,
+				E6FD48812B2277BF00EE33DE /* NotificationManager.swift */,
+				E6FD48832B2291A100EE33DE /* ClientManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -323,10 +329,12 @@
 				E61AD56B2AF9AE4B00C39E8D /* MainCoordinator.swift in Sources */,
 				E699D8DF2B02BD510074F8C2 /* RemedyTableViewCell.swift in Sources */,
 				E61AD5552AF9A7E100C39E8D /* SceneDelegate.swift in Sources */,
+				E6FD48842B2291A100EE33DE /* ClientManager.swift in Sources */,
 				E6513C442B18114B000B99D9 /* RemedyList.swift in Sources */,
 				E61AD56E2AF9B5DB00C39E8D /* HomeViewController.swift in Sources */,
-				E6513C472B181C4D000B99D9 /* Manager.swift in Sources */,
+				E6513C472B181C4D000B99D9 /* MainManager.swift in Sources */,
 				E699D8EB2B02C4950074F8C2 /* Remedy.swift in Sources */,
+				E6FD48822B2277BF00EE33DE /* NotificationManager.swift in Sources */,
 				E699D8E82B02C3EC0074F8C2 /* HomeTableController.swift in Sources */,
 				E6513C402B180B25000B99D9 /* EditRemedyViewController.swift in Sources */,
 			);

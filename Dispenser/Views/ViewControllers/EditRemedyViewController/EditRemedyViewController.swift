@@ -41,10 +41,10 @@ class EditRemedyViewController: UIViewController {
     func layoutConfig(){
         guard let remedy = self.remedy else { return }
         remedyNameTextField.text = remedy.name
-        remedyFrequencyTextField.text = String(remedy.dosesHoursInterval)
+        remedyFrequencyTextField.text = String(remedy.frequency)
         remedyAmoutPerDoseTextField.text = String(remedy.amountPerDose)
         remedyAvailableDosesTextField.text = String(remedy.remainingDoses)
-        remedyNotesTextField.text = String(remedy.remedyNotes)
+        remedyNotesTextField.text = String(remedy.notes)
     }
     
     func saveChangesToRemedy() -> (Remedy?, Int?){
@@ -56,12 +56,12 @@ class EditRemedyViewController: UIViewController {
         let remedyNotes = remedyNotesTextField.text ?? ""
         
         self.remedy?.name = remedyName
-        self.remedy?.dosesHoursInterval = dosesFrequecy
+        self.remedy?.frequency = dosesFrequecy
         self.remedy?.amountPerDose = amountPerDose
-        self.remedy?.lastDose = lastDose
+        self.remedy?.lastDoseDate = lastDose
         self.remedy?.remainingDoses = remainingDoses
-        self.remedy?.remedyNotes = remedyNotes
-        self.remedy?.calculateNextDose()
+        self.remedy?.notes = remedyNotes
+        //self.remedy?.calculateNextDose()
         
         guard let remedy = self.remedy else { return (nil, nil) }
         guard let index = remedyList.firstIndex(where: {$0.id == remedy.id}) else { return (nil, nil) }

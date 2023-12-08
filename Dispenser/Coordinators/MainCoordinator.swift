@@ -26,7 +26,10 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        Manager.fetchDataFromInternalStorage()
+        let notificationManager = NotificationManager()
+        notificationManager.askPermition()
+        MainManager.fetchDataFromInternalStorage()
+        MainManager.testAPI()
         let homeViewController = HomeViewController.instantiate(delegate: self)
         homeViewController.configureHomeViewController(delegate: self)
         navigationController?.setViewControllers([homeViewController], animated: false)
@@ -93,7 +96,7 @@ extension MainCoordinator: HomeViewControllerDelegate {
 
 extension MainCoordinator: NewRemedyDetailsViewControllerDelegate {
     func saveButtonDidTapped(_: NewRemedyViewController, _ newRemedy: Remedy) {
-        Manager.saveRemedy(newRemedy: newRemedy)
+        MainManager.saveRemedy(newRemedy: newRemedy)
         self.eventOcurred(with: .saveNewRemedyButtonDidTapped)
     }
     
@@ -116,12 +119,12 @@ extension MainCoordinator: RemedyDetailsViewControllerDelegate {
 extension MainCoordinator: EditRemedyViewControllerDelegate {
     
     func deleteButtonDidTap(_: EditRemedyViewController, remedy: Remedy) {
-        let index = Manager.deleteRemedy(remedy: remedy)
+        let index = MainManager.deleteRemedy(remedy: remedy)
         self.eventOcurred(with: .deleteRemedyButtonDidTapped, remedy: remedy, index: index)
     }
     
     func saveChangesButtonDidTap(_: EditRemedyViewController, data: (Remedy?, Int?)) {
-        Manager.editRemedy(data: data)
+        MainManager.editRemedy(data: data)
         self.eventOcurred(with: .saveChangesToExistingRemedy)
     }
     

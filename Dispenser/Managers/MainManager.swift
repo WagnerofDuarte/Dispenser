@@ -11,18 +11,39 @@ protocol ManagerDelegate: AnyObject {
     
 }
 
-class Manager {
+class MainManager {
+    
+    class func testAPI(){
+        
+        let teste = ClientManager()
+        
+        Task {
+            do {
+                let result = try await teste.getRemedy(id: 6)
+                print("AAAA: \(result.name)")
+            } catch {
+                print("Unespected Error")
+            }
+        }
+    }
     
     class func saveRemedy(newRemedy: Remedy) {
+        let notification = NotificationManager()
+        notification.sendReminderNotification(remedy: newRemedy, type: "scheduled-not")
+        
+        let teste = ClientManager()
+        teste.postNewRemedy(remedy: newRemedy)
+        
         availableTubes.remove(at: 0)
         remedyList.append(newRemedy)
+        
         saveDataInternalStorage()
     }
     
     class func deleteRemedy(remedy: Remedy) -> Int {
         guard let index = remedyList.firstIndex(where: {$0.id == remedy.id}) else { return -1}
         let remedyDeleted = remedyList.remove(at: index)
-        availableTubes.append(remedyDeleted.tube)
+        availableTubes.append(remedyDeleted.tubeIdentifier)
         saveDataInternalStorage()
         return index
     }
@@ -30,6 +51,10 @@ class Manager {
     class func editRemedy(data: (Remedy?, Int?)){
         guard let remedy = data.0 else { return }
         guard let index = data.1 else { return }
+        
+        let notification = NotificationManager()
+        notification.sendReminderNotification(remedy: remedy, type: "scheduled-not")
+        
         remedyList[index] = remedy
         saveDataInternalStorage()
     }
