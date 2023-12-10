@@ -19,8 +19,18 @@ class MainManager {
         
         Task {
             do {
-                let result = try await teste.getRemedy(id: 6)
-                print("AAAA: \(result.name)")
+                /*let result = try await teste.getRemedy(id: 10)
+                print("NOME: \(result.name)")*/
+                
+                teste.deleteRemedy(id: 25)
+                
+                /*let result = try await teste.getRemedyList()
+                remedyList = result
+                for i in remedyList {
+                    print("NOME: \(i.name)")
+                    print(result.count)
+                }*/
+
             } catch {
                 print("Unespected Error")
             }
@@ -29,7 +39,9 @@ class MainManager {
     
     class func saveRemedy(newRemedy: Remedy) {
         let notification = NotificationManager()
-        notification.sendReminderNotification(remedy: newRemedy, type: "scheduled-not")
+        
+        notification.sendReminderNotification(remedy: newRemedy, type: "scheduled")
+        notification.sendReminderNotification(remedy: newRemedy, type: "time-to-ingest")
         
         let teste = ClientManager()
         teste.postNewRemedy(remedy: newRemedy)
@@ -41,8 +53,13 @@ class MainManager {
     }
     
     class func deleteRemedy(remedy: Remedy) -> Int {
+        
         guard let index = remedyList.firstIndex(where: {$0.id == remedy.id}) else { return -1}
         let remedyDeleted = remedyList.remove(at: index)
+        
+        let teste = ClientManager()
+        teste.deleteRemedy(id: remedy.id)
+        
         availableTubes.append(remedyDeleted.tubeIdentifier)
         saveDataInternalStorage()
         return index
@@ -53,8 +70,14 @@ class MainManager {
         guard let index = data.1 else { return }
         
         let notification = NotificationManager()
-        notification.sendReminderNotification(remedy: remedy, type: "scheduled-not")
-        
+        notification.sendReminderNotification(remedy: remedy, type: "scheduled")
+        notification.sendReminderNotification(remedy: remedy, type: "time-to-ingest")
+    
+        Task {
+            let teste = ClientManager()
+            try await teste.putRemedy(remedy: remedy)
+        }
+    
         remedyList[index] = remedy
         saveDataInternalStorage()
     }
@@ -78,6 +101,21 @@ class MainManager {
             }
         }
         
+    }
+    
+    class func fetchDataFromExternalDB(){
+        Task {
+            do {
+                let client = ClientManager()
+                let notification = NotificationManager()
+                remedyList = try await client.getRemedyList()
+                for remedio in remedyList {
+                    remedio.reloadLastDoseDate()
+                }
+            } catch {
+                print("ERROR to update remedyList")
+            }
+        }
     }
     
     class func saveDataInternalStorage(){

@@ -91,11 +91,11 @@
 			isa = PBXGroup;
 			children = (
 				E6513C452B181C2F000B99D9 /* Managers */,
+				E61AD57C2AF9BDC700C39E8D /* Coordinators */,
 				E6513C422B18113C000B99D9 /* Data */,
 				E699D8EE2B02C71A0074F8C2 /* Helpers */,
 				E699D8E92B02C4860074F8C2 /* Models */,
 				E61AD57D2B02BA2900C39E8D /* Controllers */,
-				E61AD57C2AF9BDC700C39E8D /* Coordinators */,
 				E61AD5672AF9A81400C39E8D /* Views */,
 				E61AD5662AF9A80600C39E8D /* AppConfig */,
 				E61AD55B2AF9A7E200C39E8D /* Assets.xcassets */,

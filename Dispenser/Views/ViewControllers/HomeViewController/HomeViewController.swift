@@ -9,6 +9,7 @@ import UIKit
 //MARK: HomeViewControllerDelegate
 protocol HomeViewControllerDelegate: AnyObject {
     func addNewRemedyButtonDidTap(_: HomeViewController)
+    func refreshPageTapped(_: HomeViewController)
     func remedyCellDidTapped(_: HomeViewController, remedy: Remedy)
 }
 
@@ -26,6 +27,7 @@ class HomeViewController: UIViewController {
         homeViewController.delegate = delegate
         return homeViewController
     }
+
     
     //MARK: Atributtes
     var delegate: HomeViewControllerDelegate?
@@ -34,6 +36,7 @@ class HomeViewController: UIViewController {
     //MARK: IBOutlets
     @IBOutlet weak var remedyListTableView: UITableView!
     @IBOutlet weak var addRemedyButton: UIView!
+    @IBOutlet weak var titleView: UIView!
     
     //MARK: View Life Cycle
     override func viewDidLoad() {
@@ -50,6 +53,8 @@ class HomeViewController: UIViewController {
     
     func configureAddRemedyButton(){
         addRemedyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addRemedyButtonPressed(_:))))
+        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(refreshPage(_:))))
+        
     }
     
     func refreshTableView(command: RefreshType, remedy: Remedy? = nil, index: Int? = nil){
@@ -58,7 +63,6 @@ class HomeViewController: UIViewController {
             remedyListTableView.insertRows(at: [IndexPath(row: (remedyList.count - 1),
                                                           section: 0)], with: .none)
         case .delete:
-            //guard let remedy = remedy else { return }
             guard let index = index else { return }
             remedyListTableView.deleteRows(at: [IndexPath(row: index,
                                                           section: 0)], with: .none)
@@ -70,6 +74,10 @@ class HomeViewController: UIViewController {
     //MARK: Actions
     @objc func addRemedyButtonPressed(_ sender: UITapGestureRecognizer){
         delegate?.addNewRemedyButtonDidTap(self)
+    }
+    
+    @objc func refreshPage(_ sender: UITapGestureRecognizer){
+        delegate?.refreshPageTapped(self)
     }
     
 }

@@ -28,8 +28,9 @@ class MainCoordinator: Coordinator {
     func start() {
         let notificationManager = NotificationManager()
         notificationManager.askPermition()
-        MainManager.fetchDataFromInternalStorage()
-        MainManager.testAPI()
+        //MainManager.testAPI()
+        //MainManager.fetchDataFromInternalStorage()
+        MainManager.fetchDataFromExternalDB()
         let homeViewController = HomeViewController.instantiate(delegate: self)
         homeViewController.configureHomeViewController(delegate: self)
         navigationController?.setViewControllers([homeViewController], animated: false)
@@ -43,6 +44,7 @@ class MainCoordinator: Coordinator {
         
         switch type {
         case .addNewRemedyScreen:
+            homeVC.refreshTableView(command: .edit)
             let newRemedyViewController = NewRemedyViewController.instantiate(delegate: self)
             navigationController?.isNavigationBarHidden = true
             navigationController?.pushViewController(newRemedyViewController, animated: true)
@@ -52,6 +54,7 @@ class MainCoordinator: Coordinator {
             navigationController?.isNavigationBarHidden = true
             navigationController?.pushViewController(editRemedyViewController, animated: true)
         case .seeExistingRemedyScreen:
+            homeVC.refreshTableView(command: .edit)
             guard let remedy = remedy else { return }
             let remedyDetailsScreen = RemedyDetailsViewController.instantiate(delegate: self, remedy: remedy)
             navigationController?.isNavigationBarHidden = true
@@ -71,6 +74,8 @@ class MainCoordinator: Coordinator {
             navigationController?.popViewController(animated: true)
         case .cancelButtonDidTapped:
             navigationController?.popViewController(animated: true)
+        case .refresh:
+            homeVC.refreshTableView(command: .edit)
         }
     }
     
@@ -81,16 +86,18 @@ class MainCoordinator: Coordinator {
 
 extension MainCoordinator: HomeViewControllerDelegate {
     
+    func refreshPageTapped(_: HomeViewController) {
+        MainManager.fetchDataFromExternalDB()
+        //self.eventOcurred(with: .refresh)
+    }
+    
     func remedyCellDidTapped(_: HomeViewController, remedy: Remedy) {
         self.eventOcurred(with: .seeExistingRemedyScreen, remedy: remedy)
     }
     
     func addNewRemedyButtonDidTap(_: HomeViewController) {
-        if(remedyList.count < 3) {
-            self.eventOcurred(with: .addNewRemedyScreen)
-        } else {
-            // Modal informando que nao tem espaco
-        }
+        self.eventOcurred(with: .addNewRemedyScreen)
+        // Modal informando que nao tem espaco
     }
 }
 

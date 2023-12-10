@@ -28,4 +28,5 @@ enum Action {
     case saveNewRemedyButtonDidTapped
     case saveChangesToExistingRemedy
     case deleteRemedyButtonDidTapped
+    case refresh
 }

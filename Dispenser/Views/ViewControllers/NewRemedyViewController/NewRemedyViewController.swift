@@ -48,8 +48,6 @@ class NewRemedyViewController: UIViewController {
                                lastDose: lastDose,
                                remainingDoses: Int(remainingDoses) ?? 1,
                                remedyNotes: remedyNotes)
-        //newRemedy.calculateNextDose()
-        
         delegate?.saveButtonDidTapped(self, newRemedy)
     }
     

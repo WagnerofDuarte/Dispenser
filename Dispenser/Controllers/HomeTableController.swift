@@ -62,7 +62,7 @@ extension HomeTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // Criar um header
         return nil
-    }
+    }    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // Verificar tamanho ideal
