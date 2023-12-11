@@ -36,7 +36,9 @@ class HomeViewController: UIViewController {
     //MARK: IBOutlets
     @IBOutlet weak var remedyListTableView: UITableView!
     @IBOutlet weak var addRemedyButton: UIView!
+    @IBOutlet weak var refreshPageButton: UIView!
     @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var reloadTableViewButton: UIView!
     
     //MARK: View Life Cycle
     override func viewDidLoad() {
@@ -53,7 +55,9 @@ class HomeViewController: UIViewController {
     
     func configureAddRemedyButton(){
         addRemedyButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addRemedyButtonPressed(_:))))
-        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(refreshPage(_:))))
+        refreshPageButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(refreshPage(_:))))
+        reloadTableViewButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(refreshTableVeiw(_:))))
+        
         
     }
     
@@ -78,6 +82,9 @@ class HomeViewController: UIViewController {
     
     @objc func refreshPage(_ sender: UITapGestureRecognizer){
         delegate?.refreshPageTapped(self)
+    }
+    @objc func refreshTableVeiw(_ sender: UITapGestureRecognizer){
+        self.refreshTableView(command: .edit)
     }
     
 }

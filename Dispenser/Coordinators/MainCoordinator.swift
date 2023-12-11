@@ -29,7 +29,7 @@ class MainCoordinator: Coordinator {
         let notificationManager = NotificationManager()
         notificationManager.askPermition()
         //MainManager.testAPI()
-        //MainManager.fetchDataFromInternalStorage()
+        MainManager.fetchDataFromInternalStorage()
         MainManager.fetchDataFromExternalDB()
         let homeViewController = HomeViewController.instantiate(delegate: self)
         homeViewController.configureHomeViewController(delegate: self)
@@ -44,7 +44,6 @@ class MainCoordinator: Coordinator {
         
         switch type {
         case .addNewRemedyScreen:
-            homeVC.refreshTableView(command: .edit)
             let newRemedyViewController = NewRemedyViewController.instantiate(delegate: self)
             navigationController?.isNavigationBarHidden = true
             navigationController?.pushViewController(newRemedyViewController, animated: true)

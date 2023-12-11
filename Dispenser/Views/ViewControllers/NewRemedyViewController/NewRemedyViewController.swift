@@ -57,9 +57,14 @@ class NewRemedyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let keyboard = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(keyboard)
 
         // Do any additional setup after loading the view.
     }
 
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
 }

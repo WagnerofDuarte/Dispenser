@@ -13,30 +13,6 @@ protocol ManagerDelegate: AnyObject {
 
 class MainManager {
     
-    class func testAPI(){
-        
-        let teste = ClientManager()
-        
-        Task {
-            do {
-                /*let result = try await teste.getRemedy(id: 10)
-                print("NOME: \(result.name)")*/
-                
-                teste.deleteRemedy(id: 25)
-                
-                /*let result = try await teste.getRemedyList()
-                remedyList = result
-                for i in remedyList {
-                    print("NOME: \(i.name)")
-                    print(result.count)
-                }*/
-
-            } catch {
-                print("Unespected Error")
-            }
-        }
-    }
-    
     class func saveRemedy(newRemedy: Remedy) {
         let notification = NotificationManager()
         
@@ -107,7 +83,6 @@ class MainManager {
         Task {
             do {
                 let client = ClientManager()
-                let notification = NotificationManager()
                 remedyList = try await client.getRemedyList()
                 for remedio in remedyList {
                     remedio.reloadLastDoseDate()

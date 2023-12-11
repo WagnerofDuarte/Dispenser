@@ -35,6 +35,8 @@ class EditRemedyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let keyboard = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(keyboard)
         layoutConfig()
     }
     
@@ -81,6 +83,10 @@ class EditRemedyViewController: UIViewController {
     @IBAction func deleteRemedyButtonPressed(_ sender: UIButton) {
         guard let remedy = self.remedy else { return }
         delegate?.deleteButtonDidTap(self, remedy: remedy)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
 }
